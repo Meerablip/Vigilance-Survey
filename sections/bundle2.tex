@@ -1,0 +1,176 @@
+% ============================================================
+%  bundle2.tex — Taxonomy, Literature Survey (5 domains),
+%                Comparative Analysis
+%  \input{sections/bundle2} from main.tex
+% ============================================================
+
+\section{Taxonomy of Related Work}
+\label{sec:taxonomy}
+
+The surveyed literature was partitioned into five functional domains that collectively span the processing pipeline of an integrated defence surveillance system: (A)~multi-modal sensor fusion and data integration, (B)~multi-agent AI for threat detection and classification, (C)~false-alarm reduction and explainable decision support, (D)~geospatial situational awareness and human-in-the-loop governance, and (E)~real-time distributed architecture and adversarial robustness. Inclusion criteria restricted the corpus to studies satisfying at least two of three requirements: applicability to defence or security-critical environments, employment of AI or machine-learning methods, and involvement of multi-sensor or distributed system architectures. Sources span peer-reviewed journal articles, IEEE and ACM conference proceedings, and policy-research technical reports~\cite{cset2025ai, cset2024maven}.
+
+Table~\ref{tab:taxonomy} presents the resulting classification. For each domain the table identifies representative published approaches, the principal sensor or data modalities examined, the key technique employed, and the primary limitation observed when the approach is evaluated against the requirements of a unified multi-domain surveillance framework. The five domains are not mutually exclusive in operational practice: fusion quality at the sensor-integration layer (Domain~A) directly conditions the classification confidence achievable by downstream agents (Domain~B), and explanation-generation latency in the decision-support layer (Domain~C) constrains the responsiveness of human authorisation loops (Domain~D). These cross-domain dependencies are analysed quantitatively in Section~V.
+
+% NOTE: table* used for full-width layout; 5 content columns
+%       cannot fit legibly within a single IEEEtran column.
+\begin{table*}[!t]
+\centering
+\caption{Taxonomy of Defence Surveillance Literature}
+\label{tab:taxonomy}
+\renewcommand{\arraystretch}{1.3}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.8cm}}
+\hline
+\textbf{Domain} & \textbf{Representative Approaches} & \textbf{Sensor / Data Modality} & \textbf{Key Technique} & \textbf{Limitation Noted} \\
+\hline
+A: Sensor Fusion
+  & Multi-source information fusion for C3I systems; attention-based cross-modal alignment
+  & Radar, thermal, acoustic, optical, RF
+  & Feature-level and decision-level multi-source fusion
+  & Evaluated on pairwise modalities only; no adversarial degradation testing \\
+\hline
+B: Multi-Agent AI
+  & Modular MAS with role-specialised sub-agents; YOLOv8 military object detection
+  & Video, radar returns, satellite imagery, system logs
+  & Agent decomposition with cross-source threat correlation
+  & Homogeneous task distribution; no cross-modal agent orchestration \\
+\hline
+C: False Alarm / XAI
+  & Deep-learning anomaly detection; SHAP/LIME explanation methods
+  & Surveillance video, CCTV feeds, IDS telemetry
+  & Temporal consistency filtering; post-hoc feature attribution
+  & XAI latency not evaluated within real-time alert pipelines \\
+\hline
+D: Geospatial / HITL
+  & GIS-based threat dashboards; trust calibration for autonomy teaming
+  & GIS terrain layers, sensor metadata, force positions
+  & Terrain-aware threat mapping; human authorisation loops
+  & Tested in single-operator, single-threat scenarios only \\
+\hline
+E: Distributed / Adversarial
+  & Kafka + Flink real-time streaming; adversarial patch attacks on YOLO detectors
+  & IoT telemetry, edge video, RF uplinks
+  & Edge preprocessing with stream-processing inference; adversarial training
+  & No evaluation under simultaneous node failure and adversarial injection \\
+\hline
+\end{tabular}
+\end{table*}
+
+
+\section{Literature Survey}
+\label{sec:survey}
+
+\subsection{Multi-Modal Sensor Fusion and Data Integration}
+\label{sec:fusion}
+
+\subsubsection{Problem Definition}
+Defence surveillance sensors operate across incompatible modalities. Satellite imagery provides wide-area coverage at low temporal frequency; unmanned aerial vehicle (UAV) feeds deliver narrow-area, high-frame-rate video; ground-based sensors including seismic, acoustic, and infrared detectors produce numeric time-series data with distinct noise profiles and sampling rates~\cite{meng2023multisource}. Reconciling these heterogeneous data formats, sampling cadences, transmission latencies, and reliability levels into a coherent, low-latency operational picture constitutes the central technical challenge of sensor fusion for border security. Terrain variability across Indian border sectors, from arid desert to dense riverine mangrove, and intermittent radio and satellite connectivity compound the integration problem considerably.
+
+\subsubsection{Existing Approaches}
+The Joint Directors of Laboratories (JDL) data fusion model defines five processing levels from signal-level refinement (Level~0) through situation assessment (Level~2) to threat refinement (Level~3) and remains the dominant architectural reference for military fusion systems~\cite{meng2023multisource}. A comprehensive survey of multi-source information fusion for command, control, communications, and intelligence (C3I) systems by Meng et al.~\cite{meng2023multisource} distinguishes data-level, feature-level, and decision-level fusion layers, cataloguing the computational tradeoffs inherent in each. Attention-based cross-modal feature alignment has yielded the highest classification accuracy in counter-UAV applications when individual sensor reliability varies across optical, thermal, radio-frequency, and radar inputs. At the industry level, defence contractors have integrated hyperspectral imaging with AI-enabled radar and LiDAR processing for military situational awareness, and passive infrared sensor networks fused with multi-modal inputs have been deployed for autonomous detect-classify-track operations at military installations. Ali et al.~\cite{threatdetect2024rt} survey transformer-based models and federated learning pipelines for real-time threat detection, identifying attention mechanisms as particularly effective for cross-modal feature alignment.
+
+\subsubsection{Key Insight and Research Gap}
+Reviewed fusion architectures are predominantly evaluated on homogeneous or pairwise sensor combinations and have not been validated against the five-or-more modality configurations present in deployed systems such as the Comprehensive Integrated Border Management System (CIBMS). Temporal misalignment between high-frequency ground sensors reporting at 100~Hz or above and low-frequency satellite revisit passes separated by hours remains an unsolved synchronisation problem~\cite{meng2023multisource}. No study in the reviewed corpus evaluates fusion performance under adversarial sensor degradation, a gap that carries direct operational significance given documented electromagnetic interference threats in contested border environments~\cite{milai2025risk}.
+
+
+\subsection{Multi-Agent AI for Threat Detection and Classification}
+\label{sec:multiagent}
+
+\subsubsection{Problem Definition}
+A single monolithic inference model cannot simultaneously perform video-based object detection across multiple camera streams, radar-based anomaly classification, ground-sensor time-series analysis, and cross-source threat correlation at the sub-second latencies demanded by operational response protocols~\cite{zhao2022deepai}. Distributing these functions across specialised software agents introduces coordination requirements: agents must share intermediate inferences, resolve conflicting threat assessments originating from disparate modalities, and converge on a unified threat classification without creating a centralised processing bottleneck~\cite{hassan2025multiagent}.
+
+\subsubsection{Existing Approaches}
+Hassan et al.~\cite{hassan2025multiagent} propose a modular multi-agent system (MAS) for cybersecurity threat detection in which specialised sub-agents, a log analyser, an IP analyser, and a threat correlator, operate independently and contribute assessments to a central correlation engine; role-based decomposition is shown to improve both detection granularity and diagnostic traceability relative to monolithic alternatives. A cooperative AI staff system managing over 500{,}000 simulated battlefield agents was described by Zhao et al.~\cite{zhao2022deepai}, providing command-level situational awareness through automated spatio-temporal pattern correlation. The AgenticCyber framework~\cite{agenticcyber2025} extends multi-agent orchestration to multi-modal security domains by fusing cloud logs, surveillance video, and audio streams, achieving a reported 96.2\% F1 score at 420\,ms end-to-end latency. Within the visual detection component, YOLOv8-family architectures have been adapted to military targets across satellite imagery~\cite{satellite2024yolov8} and weapon identification in live surveillance feeds~\cite{weapon2023yolov8}. Project Maven's operational deployment demonstrated that a 20-person AI-augmented cell could match the throughput of a 2{,}000-person manual targeting team~\cite{cset2024maven}, although independent evaluation reported only 60\% tank identification accuracy under favourable conditions~\cite{rand2023maven}. Human-autonomy teaming frameworks that partition decision authority between AI agents and human commanders have been formalised for tactical operations~\cite{autonomyteaming2024}.
+
+\subsubsection{Key Insight and Research Gap}
+Existing MAS surveillance architectures address homogeneous task distributions, such as multi-camera handoff across a uniform video network, and do not tackle heterogeneous cross-modal agent orchestration in which agents reason over fundamentally different data representations including pixel arrays, spectrograms, and radar range-Doppler maps~\cite{hassan2025multiagent, agenticcyber2025}. A graduated five-level threat classification scheme requires each agent to produce calibrated confidence scores and the correlation agent to perform principled uncertainty quantification when fusing outputs from agents with disparate error profiles. Current MAS designs treat confidence calibration as an afterthought rather than a first-class architectural constraint~\cite{cset2025ai}.
+
+
+\subsection{False-Alarm Reduction and Explainable Decision Support}
+\label{sec:falsealarm}
+
+\subsubsection{Problem Definition}
+Persistently high false-alarm rates constitute a documented and operationally consequential failure mode in fielded surveillance systems~\cite{deepsurvey2023anomaly}. Sustained spurious alerts induce operator alert fatigue, misallocate rapid-response resources, and progressively degrade trust in automated detection pipelines. Root causes include environmental noise from wind-induced fence vibration, animal crossings, and weather-driven radar clutter; absence of temporal consistency verification in threshold-based alarm logic; and lack of contextual priors that distinguish known civilian activity zones from restricted perimeters~\cite{cctv2024anomaly}.
+
+\subsubsection{Existing Approaches}
+Weakly-supervised multiple-instance learning (MIL) frameworks for anomaly detection in real-world surveillance video have established training paradigms that substantially reduce annotation requirements for large-scale deployment~\cite{deepsurvey2023anomaly}. Deep-learning surveys catalogue CNN, LSTM, and transformer-based temporal models that improve anomaly discrimination by enforcing signature persistence across consecutive frames before triggering an alert. Hybrid architectures combining spatial object detection with temporal verification have been shown to reduce false-positive rates relative to single-frame classifiers in CCTV monitoring~\cite{cctv2024anomaly}. On the explainability front, Zhang et al.~\cite{zhang2022xai} survey SHAP, LIME, and attention-based explanation mechanisms applicable to black-box classifiers, applying explainable AI (XAI) to intrusion detection and malware classification, tasks that are structurally analogous to the threat-triage function required in military surveillance. Roff and Danks~\cite{military2024xai} address military-specific accountability requirements, stipulating that commanders must be able to audit the rationale behind targeting and escalatory recommendations under both domestic and international legal obligations.
+
+\subsubsection{Key Insight and Research Gap}
+XAI methods in surveillance have been evaluated primarily for post-hoc interpretability on static or pre-recorded datasets~\cite{zhang2022xai} and have not been integrated into real-time decision pipelines where explanation generation latency itself constrains operator response time. Contextual filtering approaches that suppress alarms in geofenced civilian zones depend on accurate, current civilian activity maps that are unavailable or classified in active border areas~\cite{cctv2024anomaly}, creating an unresolved data-dependency bottleneck that no reviewed study has addressed.
+
+
+\subsection{Geospatial Situational Awareness and Human-in-the-Loop Systems}
+\label{sec:geospatial}
+
+\subsubsection{Problem Definition}
+Actionable command decisions require threat intelligence to be spatially anchored: operators must perceive not only the nature and severity of a detected anomaly but also its precise location relative to terrain features, installation boundaries, sensor coverage envelopes, and proximity to civilian population centres~\cite{karimipour2021iot}. Graduated threat classification further demands that alerts assessed at the highest severity levels do not trigger autonomous system action; human authorisation must remain mandatory at those tiers~\cite{meaningful2024hitl}. The interface design challenge is twofold: preventing operators from reflexively endorsing AI recommendations while preserving response latencies compatible with tactical decision cycles~\cite{hitl2023trust}.
+
+\subsubsection{Existing Approaches}
+Karimipour and Derakhshan~\cite{karimipour2021iot} describe AI-enabled situational awareness dashboards for distributed sensor networks in industrial Internet of Things (IoT) environments, incorporating geographic information system (GIS) threat mapping with sensor registries that visualise coverage zones, detection radii, and active alarm sources on unified terrain layers. Zhao et al.~\cite{zhao2022deepai} extend this concept to military command by constructing multi-layer spatio-temporal battlefield visualisations that overlay force positions, predicted adversary trajectories, and terrain accessibility indices. Geospatial UAV detection with movement-vector plotting on georeferenced maps has been demonstrated for counter-drone applications. Maas~\cite{hitl2023trust} examines trust calibration and automation bias in military human-autonomy teaming, reporting that operator trust is sensitive to the transparency and perceived reliability of AI outputs. Svenmarck and Luotsinen~\cite{meaningful2024hitl} formalise the legal and technical requirements for meaningful human control, proposing design constraints that ensure commander authority over engagement decisions is not diluted by automated recommendation systems.
+
+\subsubsection{Key Insight and Research Gap}
+Human-in-the-loop (HITL) frameworks in the surveyed literature focus on single-operator, single-threat interaction models~\cite{hitl2023trust, meaningful2024hitl}. Concurrent multi-threat environments, in which an operator must triage AI-generated alerts across geographically distributed incidents simultaneously, remain under-examined despite constituting the operational norm in border-surveillance command centres. Interface designs that communicate prediction uncertainty quantitatively to operators with varying levels of technical expertise present an open challenge; existing prototypes either display raw probability values that non-technical operators misinterpret or suppress uncertainty information entirely, promoting uncalibrated trust~\cite{hitl2023trust}.
+
+
+\subsection{Real-Time Distributed Architecture and Adversarial Robustness}
+\label{sec:distributed}
+
+\subsubsection{Problem Definition}
+Sensor data generated at a remote border outpost must traverse constrained communication links, undergo inference at sub-second latency, and arrive at a central command dashboard with actionable fidelity~\cite{flink2024kafka}. Meeting this requirement demands edge preprocessing to reduce transmission volume, stream-processing middleware for sequential low-latency inference, and an architecture tolerant of node failures and intermittent connectivity. Adversarial robustness introduces a distinct threat surface: a high-value surveillance system constitutes an explicit target for adversarial patches designed to defeat object detectors, GPS spoofing aimed at unmanned platform navigation, and signal jamming directed at ground-sensor communication uplinks~\cite{advyolo2022, milai2025risk}.
+
+\subsubsection{Existing Approaches}
+Patel et al.~\cite{flink2024kafka} present a real-time IoT sensor streaming architecture combining Apache Kafka for telemetry ingestion with Apache Flink for stream processing, achieving low-latency anomaly detection on continuous sensor feeds with fault-tolerant horizontal scaling. Edge-computing extensions of this pattern perform preliminary inference at the sensor node before transmitting compressed results, reducing bandwidth requirements for drone and CCTV data in remote deployments. Ali et al.~\cite{threatdetect2024rt} survey transformer-based models and federated learning pipelines for real-time threat detection across IoT and 5G networks, identifying federated architectures as particularly suitable for privacy-preserving distributed inference in military contexts. On the adversarial front, Liang et al.~\cite{advyolo2022} catalogue physical-world attacks on YOLO-family detectors, including adversarial patches and printed perturbations that cause vehicle misclassification in outdoor conditions. Wang et al.~\cite{milai2025risk} address military-specific adversarial risks such as electromagnetic interference and GPS spoofing, and propose ethical governance guardrails for deployed military AI. Scientometric analysis of approximately 3{,}500 Scopus records confirms a fourfold growth in AI-related defence publications between 2015 and 2025~\cite{emerging2025scientometric}, yet distributed surveillance architectures remain under-represented relative to single-algorithm detection studies. Independent PRISMA reviews of UAV cybersecurity~\cite{uavsec2025iet} and UAV intrusion detection systems~\cite{uavids2025drones} converge on a shared conclusion: no unified cross-domain framework currently addresses the full defence surveillance pipeline from edge to command centre.
+
+\subsubsection{Key Insight and Research Gap}
+Adversarial robustness research in computer vision predominantly addresses digital perturbations on laboratory-curated datasets; physical-world attacks under outdoor surveillance conditions involving variable lighting, partial occlusion, and ambient sensor noise are substantially less investigated~\cite{advyolo2022}. No reviewed distributed-architecture study evaluates end-to-end pipeline latency under simultaneous edge-node failure and adversarial sensor injection, the compound threat model most representative of a contested border environment. The gap between adversarial machine-learning research and operational distributed systems engineering constitutes one of the least-addressed intersections in the defence surveillance literature~\cite{uavsec2025iet, milai2025risk}.
+
+
+\section{Comparative Analysis}
+\label{sec:comparative}
+
+Cross-domain evaluation reveals an uneven maturity gradient across the five surveyed areas. Sensor fusion (Domain~A) and visual object detection (a component of Domain~B) represent the most technically mature pillars, and YOLOv8-family detectors~\cite{satellite2024yolov8, weapon2023yolov8} approach deployment readiness for constrained single-modality scenarios. False-alarm reduction techniques (Domain~C) yield measurable improvements on benchmark datasets~\cite{deepsurvey2023anomaly} but lack validated integration with real-time explainability pipelines and with the accountability demands specific to military decision chains~\cite{military2024xai}. Geospatial HITL systems (Domain~D) and adversarially hardened distributed architectures (Domain~E) remain at the proof-of-concept stage, with empirical validation limited to single-site deployments or simulated environments~\cite{karimipour2021iot, flink2024kafka}.
+
+The most consequential pattern emerging from this review is the near-total absence of research addressing interaction effects across domain boundaries. Fusion fidelity at the sensor-integration layer directly determines the confidence bounds available to downstream classification agents~\cite{meng2023multisource, hassan2025multiagent}. Explanation-generation overhead in the XAI layer imposes an additive latency penalty on the HITL authorisation cycle~\cite{zhang2022xai, hitl2023trust}. Adversarial corruption at edge sensors propagates cascading failures through fusion, classification, and alerting stages that no surveyed system models as an integrated failure mode~\cite{advyolo2022, milai2025risk}. Table~\ref{tab:comparative} summarises the best-performing technique, reported benchmark, metric, and principal limitation for each domain when assessed against the requirements of a unified multi-domain surveillance framework.
+
+\begin{table*}[!t]
+\centering
+\caption{Comparative Analysis of Surveyed Approaches}
+\label{tab:comparative}
+\renewcommand{\arraystretch}{1.3}
+\footnotesize
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{3.5cm}}
+\hline
+\textbf{Domain} & \textbf{Best Performing Technique} & \textbf{Dataset / Benchmark} & \textbf{Metric Reported} & \textbf{Limitation in Unified Context} \\
+\hline
+A: Sensor Fusion
+  & Attention-based cross-modal DL fusion
+  & Counter-UAV optical, thermal, RF, radar corpus
+  & Highest classification accuracy vs.\ single-modal baselines
+  & No temporal synchronisation for $>$2 modalities at disparate sampling rates \\
+\hline
+B: Multi-Agent AI
+  & Multi-modal agentic orchestration
+  & Cloud logs + surveillance video + audio
+  & 96.2\% F1; 420\,ms end-to-end latency
+  & Agent confidence calibration treated as post-hoc addition \\
+\hline
+C: False Alarm / XAI
+  & Deep-learning anomaly detection with temporal verification
+  & Real-world surveillance video benchmarks
+  & Benchmark AUC across anomaly classes
+  & Explanation latency not measured for real-time deployment \\
+\hline
+D: Geospatial / HITL
+  & Multi-layer battlefield visualisation
+  & 500K+ simulated battlefield agents
+  & Command-level situational awareness coverage
+  & Multi-threat concurrent operator triage not evaluated \\
+\hline
+E: Distributed / Adversarial
+  & Kafka + Flink real-time streaming
+  & Continuous IoT sensor streams
+  & Low-latency, fault-tolerant stream processing
+  & Not tested under adversarial sensor injection or node compromise \\
+\hline
+\end{tabular}
+\end{table*}

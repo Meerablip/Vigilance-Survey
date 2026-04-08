@@ -1,0 +1,52 @@
+\documentclass[conference]{IEEEtran}
+
+% ── Packages ──────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{array}
+\hypersetup{
+    colorlinks=false,
+    pdfborder={0 0 0},
+    pdftitle={Towards Intelligent Defence Surveillance},
+    pdfauthor={Meera Chaudhari, Niranjan Prasad, Devanshi Bute, Tanishka Dawake}
+}
+
+% ── Title ─────────────────────────────────────────────────────
+\title{Towards Intelligent Defence Surveillance: A Systematic Review of Multi-Modal Sensor Fusion, Multi-Agent AI, and Real-Time Threat Classification Frameworks}
+
+% ── Authors ───────────────────────────────────────────────────
+\author{
+    \IEEEauthorblockN{Meera Chaudhari, Niranjan Prasad, Devanshi Bute, Tanishka Dawake}
+    \IEEEauthorblockA{
+        Department of Computer Science and Business Systems\\
+        JSPM's Rajarshi Shahu College of Engineering, Pune\\
+    }
+}
+
+% ══════════════════════════════════════════════════════════════
+\begin{document}
+
+\maketitle
+\pagestyle{plain}
+\thispagestyle{plain}
+
+% ── Bundle 1: Abstract + Introduction + Background ───────────
+\input{sections/bundle1}
+
+% ── Bundle 2: Taxonomy + Literature Survey + Comparative ──────
+\input{sections/bundle2}
+
+% ── Bundle 3: Research Gap + Proposed Direction + Conclusion ──
+\input{sections/bundle3}
+
+% ── References ────────────────────────────────────────────────
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
