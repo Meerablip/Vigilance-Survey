@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  9 APR 2026 05:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  9 APR 2026 06:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,12 +443,12 @@ Package hyperref Info: Link coloring OFF on input line 33.
 \openout3 = `main.out'.
 
  (sections/bundle1.tex
-Underfull \hbox (badness 1817) in paragraph at lines 15--16
+Underfull \hbox (badness 1817) in paragraph at lines 16--17
 \T1/ptm/m/n/10 ness. First, false-alarm rates across de-ployed perimeter-
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 24--25
+Underfull \hbox (badness 4660) in paragraph at lines 25--26
 []\T1/ptm/m/n/10 India's post-independence border-management doc-trine
  []
 
@@ -460,7 +460,7 @@ eera/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 1917) in paragraph at lines 28--29
+Underfull \hbox (badness 1917) in paragraph at lines 29--30
 []\T1/ptm/m/n/10 A par-al-lel trans-for-ma-tion has oc-curred in the global
  []
 
@@ -565,7 +565,7 @@ tmb8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/u
 tmbi8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmr8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on main.pdf (8 pages, 162146 bytes).
+Output written on main.pdf (8 pages, 161618 bytes).
 PDF statistics:
  376 PDF objects out of 1000 (max. 8388607)
  67 named destinations out of 1000 (max. 500000)
