@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  9 APR 2026 06:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  10 MAY 2026 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -447,8 +447,18 @@ Underfull \hbox (badness 1817) in paragraph at lines 16--17
 \T1/ptm/m/n/10 ness. First, false-alarm rates across de-ployed perimeter-
  []
 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
 
-Underfull \hbox (badness 4660) in paragraph at lines 25--26
+(C:\Users\meera\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+
+
+(C:\Users\meera\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 4660) in paragraph at lines 70--71
 []\T1/ptm/m/n/10 India's post-independence border-management doc-trine
  []
 
@@ -460,78 +470,67 @@ eera/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 1917) in paragraph at lines 29--30
+Underfull \hbox (badness 1917) in paragraph at lines 74--75
 []\T1/ptm/m/n/10 A par-al-lel trans-for-ma-tion has oc-curred in the global
  []
 
-) (sections/bundle2.tex [2]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
-
-
-(C:\Users\meera\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
+Underfull \vbox (badness 3386) has occurred while \output is active []
 
-
-(C:\Users\meera\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 2050) in paragraph at lines 80--81
+ [2]
+(sections/bundle2.tex
+Underfull \hbox (badness 2050) in paragraph at lines 36--37
  \T1/ptm/m/it/10 1) Prob-lem Def-i-ni-tion: [][][] \T1/ptm/m/n/10 A sin-gle mon
 o-lithic in-fer-ence
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
  \T1/ptm/m/it/10 2) Ex-ist-ing Ap-proaches: [][][] \T1/ptm/m/n/10 Weakly-superv
 ised multiple-
  []
 
 
-Underfull \hbox (badness 7030) in paragraph at lines 96--97
+Underfull \hbox (badness 7030) in paragraph at lines 52--53
 \T1/ptm/m/n/10 for large-scale de-ploy-ment [[]4[]]. Deep-learning sur-veys
  []
 
 
-Underfull \hbox (badness 2150) in paragraph at lines 96--97
+Underfull \hbox (badness 2150) in paragraph at lines 52--53
 \T1/ptm/m/n/10 cat-a-logue CNN, LSTM, and transformer-based tem-po-ral
  []
 
 
-Underfull \hbox (badness 5681) in paragraph at lines 96--97
+Underfull \hbox (badness 5681) in paragraph at lines 52--53
 \T1/ptm/m/n/10 sig-na-ture per-sis-tence across con-sec-u-tive frames be-fore
  []
 
 
-Underfull \hbox (badness 3158) in paragraph at lines 96--97
+Underfull \hbox (badness 3158) in paragraph at lines 52--53
 \T1/ptm/m/n/10 in CCTV mon-i-tor-ing [[]5[]]. On the ex-plain-abil-ity front,
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 96--97
+Underfull \hbox (badness 1540) in paragraph at lines 52--53
 \T1/ptm/m/n/10 re-quire-ments, stip-u-lat-ing that com-man-ders must be able
  []
 
 
-Underfull \hbox (badness 3679) in paragraph at lines 96--97
+Underfull \hbox (badness 3679) in paragraph at lines 52--53
 \T1/ptm/m/n/10 to au-dit the ra-tio-nale be-hind tar-get-ing and es-ca-la-tory
  []
 
-
-Underfull \vbox (badness 1005) has occurred while \output is active []
-
- [4])
-(sections/bundle3.tex
-Underfull \vbox (badness 3503) has occurred while \output is active []
-
- [5]
+[4]) (sections/bundle3.tex [5]
 Underfull \hbox (badness 3039) in paragraph at lines 13--14
 []\T1/ptm/m/n/10 A sec-ond cross-cutting lim-i-ta-tion con-cerns clas-si-fi-ca-
 
  []
 
-[6]) (main.bbl [7])
+
+Underfull \vbox (badness 3386) has occurred while \output is active []
+
+ [6])
+(main.bbl [7])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -554,7 +553,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  11112 strings out of 467871
  173412 string characters out of 5418377
- 599478 words of memory out of 5000000
+ 603478 words of memory out of 5000000
  39778 multiletter control sequences out of 15000+600000
  739082 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -565,7 +564,7 @@ tmb8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/u
 tmbi8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmr8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on main.pdf (8 pages, 161618 bytes).
+Output written on main.pdf (8 pages, 161629 bytes).
 PDF statistics:
  376 PDF objects out of 1000 (max. 8388607)
  67 named destinations out of 1000 (max. 500000)

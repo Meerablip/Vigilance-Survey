@@ -11,50 +11,6 @@ The surveyed literature was partitioned into five functional domains that collec
 
 Table~\ref{tab:taxonomy} presents the resulting classification. For each domain the table identifies representative published approaches, the principal sensor or data modalities examined, the key technique employed, and the primary limitation observed when the approach is evaluated against the requirements of a unified multi-domain surveillance framework. The five domains are not mutually exclusive in operational practice: fusion quality at the sensor-integration layer (Domain~A) directly conditions the classification confidence achievable by downstream agents (Domain~B), and explanation-generation latency in the decision-support layer (Domain~C) constrains the responsiveness of human authorisation loops (Domain~D). These cross-domain dependencies are analysed quantitatively in Section~V.
 
-% NOTE: table* used for full-width layout; 5 content columns
-%       cannot fit legibly within a single IEEEtran column.
-\begin{table*}[!t]
-\centering
-\caption{Taxonomy of Defence Surveillance Literature}
-\label{tab:taxonomy}
-\renewcommand{\arraystretch}{1.3}
-\footnotesize
-\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.8cm}}
-\hline
-\textbf{Domain} & \textbf{Representative Approaches} & \textbf{Sensor / Data Modality} & \textbf{Key Technique} & \textbf{Limitation Noted} \\
-\hline
-A: Sensor Fusion
-  & Multi-source information fusion for C3I systems; attention-based cross-modal alignment
-  & Radar, thermal, acoustic, optical, RF
-  & Feature-level and decision-level multi-source fusion
-  & Evaluated on pairwise modalities only; no adversarial degradation testing \\
-\hline
-B: Multi-Agent AI
-  & Modular MAS with role-specialised sub-agents; YOLOv8 military object detection
-  & Video, radar returns, satellite imagery, system logs
-  & Agent decomposition with cross-source threat correlation
-  & Homogeneous task distribution; no cross-modal agent orchestration \\
-\hline
-C: False Alarm / XAI
-  & Deep-learning anomaly detection; SHAP/LIME explanation methods
-  & Surveillance video, CCTV feeds, IDS telemetry
-  & Temporal consistency filtering; post-hoc feature attribution
-  & XAI latency not evaluated within real-time alert pipelines \\
-\hline
-D: Geospatial / HITL
-  & GIS-based threat dashboards; trust calibration for autonomy teaming
-  & GIS terrain layers, sensor metadata, force positions
-  & Terrain-aware threat mapping; human authorisation loops
-  & Tested in single-operator, single-threat scenarios only \\
-\hline
-E: Distributed / Adversarial
-  & Kafka + Flink real-time streaming; adversarial patch attacks on YOLO detectors
-  & IoT telemetry, edge video, RF uplinks
-  & Edge preprocessing with stream-processing inference; adversarial training
-  & No evaluation under simultaneous node failure and adversarial injection \\
-\hline
-\end{tabular}
-\end{table*}
 
 
 \section{Literature Survey}
