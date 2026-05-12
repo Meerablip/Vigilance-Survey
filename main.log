@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  12 MAY 2026 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  12 MAY 2026 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,12 +443,12 @@ Package hyperref Info: Link coloring OFF on input line 33.
 \openout3 = `main.out'.
 
  (sections/bundle1.tex
-Underfull \hbox (badness 1817) in paragraph at lines 20--21
+Underfull \hbox (badness 1817) in paragraph at lines 21--22
 \T1/ptm/m/n/10 ness. First, false-alarm rates across de-ployed perimeter-
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 31--32
+Underfull \hbox (badness 4660) in paragraph at lines 32--33
 []\T1/ptm/m/n/10 India's post-independence border-management doc-trine
  []
 
@@ -457,16 +457,16 @@ era/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 1917) in paragraph at lines 35--36
+Underfull \hbox (badness 1917) in paragraph at lines 36--37
 []\T1/ptm/m/n/10 A par-al-lel trans-for-ma-tion has oc-curred in the global
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
 
 (C:\Users\meera\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
 
 
 (C:\Users\meera\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -540,10 +540,6 @@ Before submitting the final camera ready copy, remember to:
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D77D7F7442C4A8FB35C63FA8841D6794;6054.
  ) 
@@ -561,7 +557,7 @@ tmb8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/u
 tmbi8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmr8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on main.pdf (8 pages, 163046 bytes).
+Output written on main.pdf (8 pages, 163047 bytes).
 PDF statistics:
  376 PDF objects out of 1000 (max. 8388607)
  67 named destinations out of 1000 (max. 500000)
