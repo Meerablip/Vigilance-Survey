@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  24 MAY 2026 19:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.4.8)  24 MAY 2026 19:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -470,12 +470,6 @@ ly ref-er-enced
 Underfull \vbox (badness 8038) has occurred while \output is active []
 
  [3]
-Underfull \hbox (badness 2050) in paragraph at lines 36--37
- \T1/ptm/m/it/10 1) Prob-lem Def-i-ni-tion: [][][] \T1/ptm/m/n/10 A sin-gle mon
-o-lithic in-fer-ence
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
  \T1/ptm/m/it/10 2) Ex-ist-ing Ap-proaches: [][][] \T1/ptm/m/n/10 Weakly-superv
 ised multiple-
@@ -517,11 +511,7 @@ Underfull \hbox (badness 3039) in paragraph at lines 13--14
 
  []
 
-[6]
-Underfull \vbox (badness 1005) has occurred while \output is active []
-
-) [7]
-(main.bbl)
+[6] [7]) (main.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -544,18 +534,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  11114 strings out of 467871
  173480 string characters out of 5418377
- 599601 words of memory out of 5000000
+ 600601 words of memory out of 5000000
  39780 multiletter control sequences out of 15000+600000
  739082 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,1862b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,1882b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmmi8.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/u
 tmb8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/u
 tmbi8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmr8a.pfb><C:/Users/meera/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on main.pdf (8 pages, 164180 bytes).
+Output written on main.pdf (8 pages, 164860 bytes).
 PDF statistics:
  377 PDF objects out of 1000 (max. 8388607)
  67 named destinations out of 1000 (max. 500000)
